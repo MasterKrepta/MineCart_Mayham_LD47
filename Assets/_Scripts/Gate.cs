@@ -4,10 +4,13 @@ using UnityEngine;
 using UnityEngine.Events;
 using TMPro;
 using System;
+using UnityEngine.UI;
 
 public class Gate : MonoBehaviour
 {
     [SerializeField] GameObject GateMenu;
+    [SerializeField] TMP_Text txtBalance, txtCost;
+    [SerializeField] Button investBtn;
     public UnityEvent SelectEvent;
     public UnityEvent CancelEvent;
     [SerializeField] int _balance;
@@ -20,6 +23,7 @@ public class Gate : MonoBehaviour
         { 
             _balance = value;
             GateMenu.SetActive(false);
+            UpdateUI();
             if (_balance >= CostToUnlock )
             {
                 Unlock();
@@ -36,15 +40,18 @@ public class Gate : MonoBehaviour
     {
         if (collision.name == "Player")
         {
+            UpdateUI();
             SelectEvent.Invoke();
         }
     }
 
 
     // Update is called once per frame
-    public void InvestInGate(int money)
+    public void InvestInGate(Player player)
     {
-        _balance += money;
+        
+        _balance += player.currency;
+        player.currency = 0;
         CancelEvent.Invoke();
     }
 
@@ -52,4 +59,17 @@ public class Gate : MonoBehaviour
     {
         CancelEvent.Invoke();
     }
+
+    void UpdateUI()
+    {
+        txtBalance.text = $"Balance: ${_balance}";
+        txtCost.text = $"Cost Remaining: ${CostToUnlock - _balance}";
+        investBtn.interactable = IsEnabled(FindObjectOfType<Player>().currency);
+    }
+
+    bool IsEnabled(int currency)
+    {
+        return currency > 0; 
+    }
+    
 }

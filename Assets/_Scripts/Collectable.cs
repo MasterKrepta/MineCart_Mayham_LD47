@@ -9,30 +9,18 @@ public class Collectable : MonoBehaviour
     public bool moving = false;
     [SerializeField] float dist;
     [SerializeField] float movingDist = 3f;
-    [SerializeField] float moveSpeed = .75f;
+    [SerializeField] float moveSpeed = 3;
 
     private void Start()
     {
         Player = FindObjectOfType<Player>();
+        moveSpeed = Random.Range(3, 5);
     }
 
     private void Update()
     {
+        //TODO stop collectables during pause
         transform.position = Vector2.MoveTowards(transform.position, Player.transform.position, moveSpeed * Time.deltaTime);
-        
-        
-        //if (moving)
-        //{
-        //    transform.position = Vector2.MoveTowards(transform.position, Player.transform.position, moveSpeed * Time.deltaTime);
-        //    return;
-        //};
-        
-        //dist = Vector3.Distance(Player.gameObject.transform.position, transform.position);
-
-        //if (dist <= movingDist)
-        //{
-        //    moving = true;
-        //}
     }
 
 

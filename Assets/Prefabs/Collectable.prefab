@@ -46,8 +46,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 1
+  moving: 0
+  dist: 0
   movingDist: 3
-  moveSpeed: 0.75
+  moveSpeed: 3
 --- !u!212 &4681312247151562406
 SpriteRenderer:
   m_ObjectHideFlags: 0

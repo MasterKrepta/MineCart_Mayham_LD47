@@ -40,7 +40,7 @@ public class Health : MonoBehaviour, IDamagable
     {
         for (int i = 0; i < numToSpawn; i++)
         {
-            Vector3 randPos =  transform.position * UnityEngine.Random.Range(-1, 3);
+            Vector3 randPos =  transform.position * UnityEngine.Random.Range(1, 2);
             Instantiate(collectablePrefab, randPos, Quaternion.identity);
         }
 
