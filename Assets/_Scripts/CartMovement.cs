@@ -6,7 +6,7 @@ public class CartMovement : MonoBehaviour
 {
     [SerializeField] TrackController track;
     [SerializeField] float arrivalDistance = 1.1f;
-    [SerializeField]Transform targetNode = null;
+    [SerializeField]TrackPoint targetNode = null;
     [SerializeField] float moveSpeed = 2;
     [SerializeField] float dist;
     public bool moving = true;
@@ -23,7 +23,7 @@ public class CartMovement : MonoBehaviour
     {
         if (moving == false) return;
 
-        dist = Vector3.Distance(targetNode.position, transform.position);
+        dist = Vector3.Distance(targetNode.transform.position, transform.position);
 
         
         if (dist <= arrivalDistance)
@@ -31,7 +31,7 @@ public class CartMovement : MonoBehaviour
             targetNode = track.GetNextNode();
         }
 
-        transform.position = Vector2.MoveTowards(transform.position, targetNode.position, moveSpeed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, targetNode.transform.position, moveSpeed * Time.deltaTime);
 
     }
 

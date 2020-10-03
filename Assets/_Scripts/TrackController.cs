@@ -5,18 +5,18 @@ using UnityEngine;
 
 public class TrackController : MonoBehaviour
 {
-    [SerializeField] Transform[] nodes;
+    [SerializeField] TrackPoint[] nodes;
     int currentPosition;
-    Transform closestNode;
+    TrackPoint closestNode;
     // Start is called before the first frame update
     void OnEnable()
     {
-        nodes = GetComponentsInChildren<Transform>();
+        nodes = GetComponentsInChildren<TrackPoint>();
         closestNode = nodes[0];
     }
 
  
-    public Transform GetNextNode()
+    public TrackPoint GetNextNode()
     {
         currentPosition++;
         if (currentPosition >= nodes.Length)
@@ -26,7 +26,7 @@ public class TrackController : MonoBehaviour
         return nodes[currentPosition];
     }
 
-    public Transform StartingNode() { return nodes[0]; }
+    public TrackPoint StartingNode() { return nodes[0]; }
 
     public void ReconfigureTrack(Transform newNode)
     {
