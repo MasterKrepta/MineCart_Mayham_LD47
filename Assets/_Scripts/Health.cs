@@ -8,8 +8,16 @@ public class Health : MonoBehaviour, IDamagable
     [SerializeField] Transform collectablePrefab;
     [SerializeField] int numToSpawn;
 
-    public float MaxHealth { get; set; }
-    private float _currentHealth;
+    [SerializeField] float _maxHealth;
+
+    public float MaxHealth
+    {
+        get { return _maxHealth; }
+        set { _maxHealth = value; }
+    }
+
+
+    [SerializeField] float _currentHealth;
 
     public float CurrentHealth
     {
@@ -21,6 +29,11 @@ public class Health : MonoBehaviour, IDamagable
                 Die();
             }
         }
+    }
+
+    private void Start()
+    {
+        CurrentHealth = MaxHealth;
     }
 
     private void Die()

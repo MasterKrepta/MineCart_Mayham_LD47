@@ -40,9 +40,9 @@ public class PlayerShooting : MonoBehaviour
 
     private void Aiming()
     {
-        Vector2 dir = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+        Vector2 dir = Camera.main.ScreenToWorldPoint(Input.mousePosition) - gun.position;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        Quaternion rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
         gun.rotation = rotation;
     }
 }
