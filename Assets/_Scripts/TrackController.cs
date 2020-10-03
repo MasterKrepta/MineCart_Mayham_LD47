@@ -27,4 +27,9 @@ public class TrackController : MonoBehaviour
     }
 
     public Transform StartingNode() { return nodes[0]; }
+
+    public void ReconfigureTrack(Transform newNode)
+    {
+        Debug.Log("Configure track here");
+    }
 }

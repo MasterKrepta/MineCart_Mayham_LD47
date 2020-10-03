@@ -9,6 +9,7 @@ public class CartMovement : MonoBehaviour
     [SerializeField]Transform targetNode = null;
     [SerializeField] float moveSpeed = 2;
     [SerializeField] float dist;
+    public bool moving = true;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +21,8 @@ public class CartMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (moving == false) return;
+
         dist = Vector3.Distance(targetNode.position, transform.position);
 
         
@@ -30,12 +33,11 @@ public class CartMovement : MonoBehaviour
 
         transform.position = Vector2.MoveTowards(transform.position, targetNode.position, moveSpeed * Time.deltaTime);
 
-
-
-        //transform.LookAt(targetNode.position);
-        //transform.Translate(transform.up * Time.deltaTime * moveSpeed);
-
     }
 
+    public void ToggleMovement()
+    {
+        moving = !moving;
+    }
 
 }

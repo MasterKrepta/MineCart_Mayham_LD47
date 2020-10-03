@@ -12,7 +12,7 @@ public class PlayerShooting : MonoBehaviour
     [SerializeField] Transform bulletPrefab;
     float fireDelay = .5f;
     float nextFireTime = 0;
-    float fireOffset = .5f;
+    bool shootingEnabled = true;
 
 
     // Use this for initialization
@@ -25,6 +25,9 @@ public class PlayerShooting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (shootingEnabled == false) return;
+        
+
         Aiming();
         if (Input.GetMouseButtonDown(0)&& CanFire())
         {
@@ -44,5 +47,10 @@ public class PlayerShooting : MonoBehaviour
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         Quaternion rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
         gun.rotation = rotation;
+    }
+
+    public void ToggleShooting()
+    {
+        shootingEnabled = !shootingEnabled;
     }
 }

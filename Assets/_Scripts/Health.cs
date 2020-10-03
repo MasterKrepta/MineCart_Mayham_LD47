@@ -6,9 +6,9 @@ using UnityEngine;
 public class Health : MonoBehaviour, IDamagable
 {
     [SerializeField] Transform collectablePrefab;
-    [SerializeField] int numToSpawn;
+    [SerializeField] int numToSpawn = 1;
 
-    [SerializeField] float _maxHealth;
+    [SerializeField] float _maxHealth = 1;
 
     public float MaxHealth
     {
