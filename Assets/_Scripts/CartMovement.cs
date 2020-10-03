@@ -1,11 +1,12 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class CartMovement : MonoBehaviour
 {
     [SerializeField] TrackController track;
-    [SerializeField] float arrivalDistance = 1.1f;
+    [SerializeField] float arrivalDistance = 0.2f;
     [SerializeField]TrackPoint targetNode = null;
     [SerializeField] float moveSpeed = 2;
     [SerializeField] float dist;
@@ -19,7 +20,7 @@ public class CartMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         if (moving == false) return;
 
@@ -40,4 +41,21 @@ public class CartMovement : MonoBehaviour
         moving = !moving;
     }
 
+    public void SetTargetNode(TrackPoint point)
+    {
+        targetNode = point;
+    }
+
+    //public void JunctionDelay()
+    //{
+    //    print("start");
+    //    StartCoroutine(ShortDelayHack());
+    //}
+
+    //IEnumerator ShortDelayHack()
+    //{
+    //    arrivalDistance = -5;
+    //    yield return new WaitForSeconds(.5f);
+    //    arrivalDistance = 0.2f;
+    //}
 }

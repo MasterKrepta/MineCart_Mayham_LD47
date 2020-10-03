@@ -6,6 +6,7 @@ using UnityEngine.Events;
 public class Junction : MonoBehaviour
 {
     TrackController _track;
+    CartMovement _cart;
     public Transform[] availablePaths;
     public GameObject junctionMenu;
     public UnityEvent SelectEvent;
@@ -13,7 +14,8 @@ public class Junction : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _track = FindObjectOfType<TrackController>();   
+        _track = FindObjectOfType<TrackController>();
+        _cart = FindObjectOfType<CartMovement>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -25,12 +27,12 @@ public class Junction : MonoBehaviour
     }
 
 
-    public void AssignNextPath(Transform next)
-    {
-        
-        _track.ReconfigureTrack(next);
-        ContinueMovement.Invoke();
-    }
+    //public void AssignNextPath(TrackPoint next)
+    //{
+    //    _cart.SetTargetNode(next);
+    //    _track.ReconfigureTrack(next);
+    //    ContinueMovement.Invoke();
+    //}
 
     
 }
