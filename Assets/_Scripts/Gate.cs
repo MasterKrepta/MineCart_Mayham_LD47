@@ -50,8 +50,8 @@ public class Gate : MonoBehaviour
     public void InvestInGate(Player player)
     {
         
-        _balance += player.currency;
-        player.currency = 0;
+        _balance += player.Currency;
+        player.Currency = 0;
         CancelEvent.Invoke();
     }
 
@@ -64,7 +64,7 @@ public class Gate : MonoBehaviour
     {
         txtBalance.text = $"Balance: ${_balance}";
         txtCost.text = $"Cost Remaining: ${CostToUnlock - _balance}";
-        investBtn.interactable = IsEnabled(FindObjectOfType<Player>().currency);
+        investBtn.interactable = IsEnabled(FindObjectOfType<Player>().Currency);
     }
 
     bool IsEnabled(int currency)

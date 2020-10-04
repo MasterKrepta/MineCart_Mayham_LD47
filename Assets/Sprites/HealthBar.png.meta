@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: 4fd6e8319b3d80544934f68f6ee8dfb4
+guid: 374696eae13e2384c8e06b7eb7dc830b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7220044541070853391
-    second: GateSheet_0
+      213: -8227546954408941770
+    second: HealthBar_BG
   - first:
-      213: 8680561159425736272
-    second: GateClosed
+      213: -3178617384780871938
+    second: hearts
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: -1
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -117,13 +117,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: GateSheet_0
+      name: HealthBar_BG
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 64
-        height: 64
+        x: 181
+        y: 235
+        width: 613
+        height: 267
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,20 +131,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f05c605b140c23460800000000000000
-      internalID: 7220044541070853391
+      spriteID: 637ab99e2a1e1dd80800000000000000
+      internalID: -8227546954408941770
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GateClosed
+      name: hearts
       rect:
         serializedVersion: 2
-        x: 64
-        y: 0
-        width: 64
-        height: 64
+        x: 196
+        y: 37
+        width: 579
+        height: 171
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,8 +152,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 05ebf96026c877870800000000000000
-      internalID: 8680561159425736272
+      spriteID: ef6414f545843e3d0800000000000000
+      internalID: -3178617384780871938
       vertices: []
       indices: 
       edges: []

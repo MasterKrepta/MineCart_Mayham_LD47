@@ -29,10 +29,10 @@ public class PlayerShooting : MonoBehaviour
         
 
         Aiming();
-        if (Input.GetMouseButtonDown(0)&& CanFire())
+        if (Input.GetMouseButton(0)&& CanFire())
         {
             nextFireTime = Time.time + fireDelay;
-            Instantiate(bulletPrefab, barrel.transform.position, gun.transform.rotation);
+            Instantiate(bulletPrefab, barrel.transform.position, barrel.transform.rotation);
         }
     }
 
