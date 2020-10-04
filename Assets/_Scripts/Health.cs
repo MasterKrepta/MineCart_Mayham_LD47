@@ -38,6 +38,7 @@ public class Health : MonoBehaviour, IDamagable
 
     private void Die()
     {
+
         for (int i = 0; i < numToSpawn; i++)
         {
             Vector3 randPos =  transform.position * UnityEngine.Random.Range(1, 2);

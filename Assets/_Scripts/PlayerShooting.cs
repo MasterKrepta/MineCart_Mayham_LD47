@@ -6,11 +6,11 @@ using UnityEngine.Assertions.Comparers;
 
 public class PlayerShooting : MonoBehaviour
 {
-    [SerializeField] Texture2D cursor;
     [SerializeField] Transform gun;
+    public Camera main;
     [SerializeField] Transform barrel;
     [SerializeField] Transform bulletPrefab;
-    float fireDelay = .5f;
+    public float fireDelay = 0.25f;
     float nextFireTime = 0;
     bool shootingEnabled = true;
 
@@ -18,8 +18,7 @@ public class PlayerShooting : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        Cursor.SetCursor(cursor, Vector2.zero, CursorMode.Auto);
-    
+        //main = Camera.main;
     }
 
     // Update is called once per frame
@@ -43,7 +42,8 @@ public class PlayerShooting : MonoBehaviour
 
     private void Aiming()
     {
-        Vector2 dir = Camera.main.ScreenToWorldPoint(Input.mousePosition) - gun.position;
+
+        Vector2 dir = main.ScreenToWorldPoint(Input.mousePosition) - gun.position;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         Quaternion rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
         gun.rotation = rotation;
