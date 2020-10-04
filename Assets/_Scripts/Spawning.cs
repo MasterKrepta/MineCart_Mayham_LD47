@@ -15,12 +15,15 @@ public class Spawning : MonoBehaviour
 
     public float spawnTime = 30f;
     public float rockSpawnTime = 1.5f;
-
+    bool paused = false;
 
 
     // Update is called once per frame
     void Update()
     {
+       
+        
+
         if (Time.time >= nextBatTime)
         {
             nextBatTime= Time.time + spawnTime;
@@ -37,6 +40,7 @@ public class Spawning : MonoBehaviour
 
     void Spawn(Transform prefab)
     {
+        if (paused) return;
         int rand = Random.Range(0, spawnPoints.Length);
         Transform pos = spawnPoints[rand];
         Instantiate(prefab, pos.position, Quaternion.identity);
@@ -44,8 +48,20 @@ public class Spawning : MonoBehaviour
 
     void SpawnStationary(Transform prefab)
     {
+        if (paused) return;
         int rand = Random.Range(0, stationarySpawnPoints.Length);
         Transform pos = stationarySpawnPoints[rand];
         Instantiate(prefab, pos.position, Quaternion.identity);
+    }
+    public void TogglePause()
+    {
+        if (paused)
+        {
+            paused = false;
+        }
+        else
+        {
+            paused = true;
+        }
     }
 }

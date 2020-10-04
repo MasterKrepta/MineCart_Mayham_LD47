@@ -10,7 +10,7 @@ public class Junction : MonoBehaviour
     public Transform[] availablePaths;
     public GameObject junctionMenu;
     public UnityEvent SelectEvent;
-    public UnityEvent ContinueMovement;
+    //public UnityEvent ContinueMovement;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,13 +26,19 @@ public class Junction : MonoBehaviour
         }
     }
 
-
-    //public void AssignNextPath(TrackPoint next)
-    //{
-    //    _cart.SetTargetNode(next);
-    //    _track.ReconfigureTrack(next);
-    //    ContinueMovement.Invoke();
-    //}
-
-    
+    public void ToggleEnemies()
+    {
+        Rock[] rocks = FindObjectsOfType<Rock>();
+        Bat[] bats = FindObjectsOfType<Bat>();
+        Spawning _spawn = FindObjectOfType<Spawning>();
+        _spawn.TogglePause();
+        foreach (var item in rocks)
+        {
+            item.TogglePause();
+        }
+        foreach (var item in bats)
+        {
+            item.TogglePause();
+        }
+    }
 }

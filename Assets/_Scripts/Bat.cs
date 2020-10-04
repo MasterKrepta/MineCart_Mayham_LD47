@@ -11,6 +11,8 @@ public class Bat : MonoBehaviour
     float dist;
     float nextfire;
     bool CanFire = true;
+
+    bool paused = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +22,7 @@ public class Bat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (paused) return;
         dist = Vector3.Distance(_player.transform.position, transform.position);
 
         var dir = _player.transform.position - transform.position;
@@ -44,5 +47,17 @@ public class Bat : MonoBehaviour
     bool Canfire()
     {
         return Time.time >= nextfire;
+    }
+
+    public void TogglePause()
+    {
+        if (paused)
+        {
+            paused = false;
+        }
+        else
+        {
+            paused = true;
+        }
     }
 }

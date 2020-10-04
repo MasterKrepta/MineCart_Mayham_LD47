@@ -16,6 +16,11 @@ public class CartMovement : MonoBehaviour
     void Start()
     {
         track = FindObjectOfType<TrackController>();
+        ResetTrackNode();
+    }
+
+    public void ResetTrackNode()
+    {
         targetNode = track.StartingNode();
     }
 

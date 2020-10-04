@@ -20,12 +20,18 @@ public class TrackController : MonoBehaviour
         //    currentNodes.Add(c);
         //}
 
-        currentNodes = Track1;
+        RespawnTrack();
         //nodes = GetComponentsInChildren<TrackPoint>();
+        
+    }
+
+    public void RespawnTrack()
+    {
+        currentNodes = Track1;
+
         closestNode = currentNodes[0];
     }
 
- 
     public TrackPoint GetNextNode()
     {
         currentPosition++;
@@ -36,7 +42,11 @@ public class TrackController : MonoBehaviour
         return currentNodes[currentPosition];
     }
 
-    public TrackPoint StartingNode() { return currentNodes[0]; }
+    public TrackPoint StartingNode()
+    {
+        RespawnTrack();
+        return currentNodes[0]; 
+    }
 
     //public void ReconfigureTrack(TrackPoint newNode)
     //{
