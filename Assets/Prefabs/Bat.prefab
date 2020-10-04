@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1180453872}
   - component: {fileID: 1180453871}
   - component: {fileID: 1180453870}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bat_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,8 +115,7 @@ GameObject:
   - component: {fileID: 2010913061422619364}
   - component: {fileID: 2010913061422619367}
   - component: {fileID: 323254901}
-  - component: {fileID: 323254904}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -216,28 +215,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireRate: 1
-  range: 5
+  range: 10
   movespeed: 2
   spitPrefab: {fileID: 1206458585754954096, guid: b54e038d834cf6e46b1457033b489ecd,
     type: 3}
   barrel: {fileID: 8521697544403010060}
---- !u!114 &323254904
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2010913061422619352}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26dfe6fea1429d8419d0982746213695, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  collectablePrefab: {fileID: 4681312247151562404, guid: 8c7511b581575364c82e2ee0ac742e2a,
-    type: 3}
-  numToSpawn: 2
-  _maxHealth: 1
-  _currentHealth: 0
 --- !u!1 &7047027335539185209
 GameObject:
   m_ObjectHideFlags: 0
@@ -247,7 +229,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8521697544403010060}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

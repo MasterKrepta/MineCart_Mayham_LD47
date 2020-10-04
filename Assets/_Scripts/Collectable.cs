@@ -9,12 +9,12 @@ public class Collectable : MonoBehaviour
     public bool moving = false;
     [SerializeField] float dist;
     [SerializeField] float movingDist = 3f;
-    [SerializeField] float moveSpeed = 3;
+    [SerializeField] float moveSpeed = 10;
 
     private void Start()
     {
         Player = FindObjectOfType<Player>();
-        moveSpeed = Random.Range(3, 5);
+        moveSpeed = Random.Range(6, moveSpeed);
     }
 
     private void Update()

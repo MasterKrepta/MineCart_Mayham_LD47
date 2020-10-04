@@ -9,27 +9,43 @@ public class Spawning : MonoBehaviour
     int randomPos;
     int maxBats = 10;
     int maxTurrets = 5;
-    float nextTime = 3f;
-    
-    
+    float nextBatTime = 3f;
+    float NextRockTime = 1.5f;
+
+
     public float spawnTime = 30f;
-    
+    public float rockSpawnTime = 1.5f;
+
 
 
     // Update is called once per frame
     void Update()
     {
-        if (Time.time >= nextTime)
+        if (Time.time >= nextBatTime)
         {
-            nextTime= Time.time + spawnTime;
+            nextBatTime= Time.time + spawnTime;
             Spawn(batsPrefab);
+        
         }
+        if (Time.time >= NextRockTime)
+        {
+            NextRockTime = Time.time + rockSpawnTime;
+            SpawnStationary(fallingRockPrefabs);
+        }
+        
     }
 
     void Spawn(Transform prefab)
     {
         int rand = Random.Range(0, spawnPoints.Length);
         Transform pos = spawnPoints[rand];
+        Instantiate(prefab, pos.position, Quaternion.identity);
+    }
+
+    void SpawnStationary(Transform prefab)
+    {
+        int rand = Random.Range(0, stationarySpawnPoints.Length);
+        Transform pos = stationarySpawnPoints[rand];
         Instantiate(prefab, pos.position, Quaternion.identity);
     }
 }

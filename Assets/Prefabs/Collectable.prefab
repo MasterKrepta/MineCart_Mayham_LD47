@@ -49,7 +49,7 @@ MonoBehaviour:
   moving: 0
   dist: 0
   movingDist: 3
-  moveSpeed: 6
+  moveSpeed: 20
 --- !u!212 &4681312247151562406
 SpriteRenderer:
   m_ObjectHideFlags: 0
